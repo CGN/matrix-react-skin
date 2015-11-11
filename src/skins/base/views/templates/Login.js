@@ -41,8 +41,9 @@ module.exports = React.createClass({
      */
     getFormVals: function() {
         return {
-            'username': this.refs.user.getDOMNode().value,
-            'password': this.refs.pass.getDOMNode().value
+            'authtoken': this.refs.authtoken.getDOMNode().value
+            //'username': this.refs.user.getDOMNode().value,
+            //'password': this.refs.pass.getDOMNode().value
         };
     },
 
@@ -72,6 +73,15 @@ module.exports = React.createClass({
                         <input ref="user" type="text" placeholder="username" /><br />
                         <input ref="pass" type="password" placeholder="password" /><br />
                         <input type="submit" value="Log in" />
+                        </form>
+                    </div>
+                );
+            case 'stage_m.login.authtoken':
+                return (
+                    <div>
+                        <form onSubmit={this.onUserAuthTokenEntered}>
+                            <input ref="authtoken" type="text" placeholder="authtoken" /><br />
+                            <input type="submit" value="Log in" />
                         </form>
                     </div>
                 );
